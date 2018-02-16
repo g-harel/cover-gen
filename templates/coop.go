@@ -91,14 +91,14 @@ func getFormattedDate() string {
 // Parses and formats listing information.
 func getListingData(listing string) (organization, name, greeting, address, location string) {
 	coopRegExp := regexp.MustCompile("(?s)" + ".*" +
-		"Organization: (.+).*" +
-		"Salutation: (.+).*" +
-		"Job Contact First Name: (.+).*" +
-		"Job Contact Last Name: (.+).*" +
-		"Address Line One: (.+).*" +
-		"City: (.+).*" +
-		"Province / State: (.+).*" +
-		"Postal Code / Zip Code: (.+).*")
+		"Organization: ([^\n]+).*" +
+		"Salutation: ([^\n]+).*" +
+		"Job Contact First Name: ([^\n]+).*" +
+		"Job Contact Last Name: ([^\n]+).*" +
+		"Address Line One: ([^\n]+).*" +
+		"City: ([^\n]+).*" +
+		"Province / State: ([^\n]+).*" +
+		"Postal Code / Zip Code: ([^\n]+).*")
 
 	matchResult := coopRegExp.FindStringSubmatch(listing)
 
